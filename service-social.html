@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Social Media Management — NexSale Digital Marketing</title>
+<link rel="icon" href="./images/favicon.png" type="image/jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/EPIPQ3sZyEaTD9AXWXpNatRNYA.woff2");font-weight:700;font-display:swap;}
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/p1xtRpMnQqT49E3ruloagNZA.woff2");font-weight:500;font-display:swap;}
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/GCNg0zn2SGY4j9o7EOyAXQwNPds.woff2");font-weight:400;font-display:swap;}
+:root{--c:#00c4b8;--m:#d4006a;--p:#6b2aef;--grad:linear-gradient(135deg,var(--c) 0%,var(--p) 50%,var(--m) 100%);--bg:#f5f5f7;--surface:#ffffff;--surface2:#f0f0f5;--ink:#111118;--ink2:#444455;--ink3:#888899;--line:#e2e2ea;--fh:'Clash Display',sans-serif;--fb:'Space Grotesk',sans-serif;--fm:'JetBrains Mono',monospace;--max:1200px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);overflow-x:hidden;}
+.container{max-width:var(--max);margin:0 auto;width:100%;padding:0 48px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);height:68px;}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap img{height:130px;width:auto;object-fit:contain;display:block;}
+nav ul{list-style:none;display:flex;}
+nav ul li a{display:flex;align-items:center;padding:0 14px;height:68px;color:var(--ink2);text-decoration:none;font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:0.03em;transition:color 0.2s;}
+nav ul li a:hover,nav ul li a.active{color:var(--p);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;}
+.nav-cta::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%);transform:skewX(-20deg);}
+.nav-cta:hover::after{left:150%;transition:left 0.55s ease;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.2s,transform 0.2s;}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%);transform:skewX(-20deg);}
+.btn-primary:hover{opacity:0.92;transform:translateY(-1px);}
+.btn-primary:hover::after{left:150%;transition:left 0.55s ease;}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:transparent;border:1.5px solid var(--line);color:var(--ink2);font-family:var(--fb);font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--p);color:var(--p);}
+.s-label{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:10px;}
+.s-label::before{content:'';display:block;width:18px;height:2px;background:var(--grad);}
+h2.sh{font-family:var(--fh);font-weight:700;font-size:clamp(34px,4.5vw,54px);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.0;color:var(--ink);margin-bottom:14px;}
+h2.sh .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-p{font-family:var(--fm);font-size:14px;color:var(--ink3);line-height:1.7;max-width:560px;margin-bottom:48px;}
+.page-hero{background:var(--surface);border-bottom:1px solid var(--line);padding:120px 0 80px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:0.5;}
+.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,42,239,0.07);border:1px solid rgba(107,42,239,0.2);padding:6px 16px;margin-bottom:24px;font-family:var(--fm);font-size:11px;font-weight:700;color:var(--p);letter-spacing:0.14em;text-transform:uppercase;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--p);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.6)}}
+h1.ph{font-family:var(--fh);font-weight:700;font-size:clamp(44px,5.5vw,72px);letter-spacing:-0.03em;line-height:1.0;color:var(--ink);text-transform:uppercase;margin-bottom:18px;}
+h1.ph .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ph-sub{font-family:var(--fm);font-size:14px;color:var(--ink3);line-height:1.7;max-width:480px;margin-bottom:32px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-card{background:var(--surface);border:1px solid var(--line);padding:28px;}
+.hero-card .card-label{font-family:var(--fm);font-size:10px;color:var(--ink3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;}
+.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+.ms{background:var(--surface);padding:14px;}
+.ms-n{font-family:var(--fh);font-size:26px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.ms-l{font-family:var(--fm);font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+.post-preview{background:var(--surface2);border:1px solid var(--line);padding:14px;margin-bottom:14px;}
+.post-tag{font-family:var(--fm);font-size:10px;color:var(--p);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.post-text{font-size:13px;color:var(--ink2);line-height:1.5;}
+.post-meta{font-family:var(--fm);font-size:10px;color:var(--ink3);margin-top:8px;}
+.stats-strip{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.stats-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-cell{padding:32px 24px;text-align:center;border-right:1px solid var(--line);}
+.stat-cell:last-child{border-right:none;}
+.stat-n{font-family:var(--fh);font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-l{font-family:var(--fm);font-size:11px;color:var(--ink3);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase;}
+.problem-sec{background:var(--bg);padding:80px 0;}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:48px;}
+.prob-col{background:var(--surface);padding:36px 32px;}
+.prob-col.bad{background:var(--surface2);}
+.prob-head{font-family:var(--fm);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;}
+.prob-head.red{color:#d4006a;}
+.prob-head.green{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.prob-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:14px;color:var(--ink2);line-height:1.6;}
+.included-sec{background:var(--surface);padding:80px 0;border-top:1px solid var(--line);}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px;}
+.ic{background:var(--surface);padding:36px 28px;transition:background 0.2s;position:relative;overflow:hidden;}
+.ic:hover{background:var(--bg);}
+.ic::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.ic:hover::after{transform:scaleX(1);}
+.ic-icon{width:40px;height:40px;margin-bottom:14px;}
+.ic h3{font-family:var(--fh);font-size:20px;font-weight:700;text-transform:uppercase;margin-bottom:8px;color:var(--ink);}
+.ic p{font-size:13px;color:var(--ink2);line-height:1.65;}
+.process-sec{background:var(--bg);padding:80px 0;border-top:1px solid var(--line);}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px;}
+.pc{background:var(--surface);padding:36px 24px;position:relative;overflow:hidden;transition:background 0.2s;}
+.pc:hover{background:var(--surface2);}
+.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.pc:hover::after{transform:scaleX(1);}
+.pc-num{font-family:var(--fm);font-size:11px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:12px;}
+.pc h3{font-family:var(--fh);font-size:20px;font-weight:700;text-transform:uppercase;margin-bottom:8px;color:var(--ink);}
+.pc p{font-size:13px;color:var(--ink2);line-height:1.65;}
+.for-sec{background:var(--surface);padding:80px 0;border-top:1px solid var(--line);}
+.for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px;}
+.fc2{background:var(--surface);padding:36px 28px;transition:background 0.2s;position:relative;overflow:hidden;}
+.fc2:hover{background:var(--bg);}
+.fc2::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.fc2:hover::after{transform:scaleX(1);}
+.fc2-num{font-family:var(--fh);font-size:36px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;line-height:1;}
+.fc2 h3{font-family:var(--fh);font-size:20px;font-weight:700;text-transform:uppercase;margin-bottom:8px;color:var(--ink);}
+.fc2 p{font-size:13px;color:var(--ink2);line-height:1.65;}
+.faq-sec{background:var(--bg);padding:80px 0;border-top:1px solid var(--line);}
+.faq-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start;}
+.faq-list{border-top:1px solid var(--line);}
+.fq-item{border-bottom:1px solid var(--line);}
+.fq-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--fh);font-size:18px;font-weight:700;letter-spacing:0.01em;text-transform:uppercase;padding:18px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color 0.2s;}
+.fq-q:hover{color:var(--p);}
+.fq-icon{font-family:var(--fm);font-size:1.2rem;color:var(--p);flex-shrink:0;transition:transform 0.3s;}
+.fq-item.open .fq-icon{transform:rotate(45deg);}
+.fq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.fq-a p{padding:0 0 18px;font-size:14px;color:var(--ink2);line-height:1.7;}
+.fq-item.open .fq-a{max-height:220px;}
+.testi-sec{background:var(--surface);padding:80px 0;border-top:1px solid var(--line);}
+.tcard{background:var(--bg);border:1px solid var(--line);padding:36px 32px;max-width:680px;}
+.stars{font-size:14px;letter-spacing:3px;margin-bottom:16px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tcard blockquote{font-size:17px;color:var(--ink);line-height:1.7;margin-bottom:24px;}
+.t-auth{display:flex;align-items:center;gap:12px;}
+.av{width:40px;height:40px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.t-auth h4{font-size:14px;font-weight:600;color:var(--ink);}
+.t-auth span{font-family:var(--fm);font-size:11px;color:var(--ink3);}
+.cta-sec{padding:100px 0;text-align:center;background:var(--surface);border-top:1px solid var(--line);}
+.cta-label{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-label::before,.cta-label::after{content:'';display:block;width:20px;height:2px;background:var(--grad);}
+.cta-sec h2{font-family:var(--fh);font-size:clamp(36px,5vw,62px);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.0;color:var(--ink);margin-bottom:16px;}
+.cta-sec h2 .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-sec p{font-family:var(--fm);font-size:14px;color:var(--ink3);max-width:460px;margin:0 auto 32px;line-height:1.65;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-family:var(--fm);font-size:11px;color:var(--ink3);letter-spacing:0.06em;flex-wrap:wrap;position:relative;z-index:1;}
+.breadcrumb a{color:var(--ink3);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--p);}
+.breadcrumb span{color:var(--p);}
+footer{background:var(--ink);padding:72px 0 36px;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 48px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.f-logo img{height:90px;width:auto;display:block;margin-bottom:14px;}
+.f-logo p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.72;max-width:240px;margin-bottom:18px;}
+.soc-row{display:flex;gap:8px;}
+.soc{width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all 0.2s;}
+.soc:hover{border-color:var(--c);color:var(--c);}
+.soc svg{width:16px;height:16px;}
+footer h4{font-family:var(--fm);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+footer ul a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:14px;transition:color 0.2s;}
+footer ul a:hover{color:#fff;}
+.f-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;}
+.f-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+.f-bottom a:hover{color:#fff;}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.fade-in.vis{opacity:1;transform:none;}
+@media(max-width:1100px){.nav-inner,.container,.footer-inner{padding:0 24px;}.hero-inner{grid-template-columns:1fr;}.inc-grid,.for-grid{grid-template-columns:1fr 1fr;}.proc-grid{grid-template-columns:1fr 1fr;}.faq-layout{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.stats-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){nav ul{display:none;}.nav-inner{padding:0 16px;}.page-hero{padding:90px 0 48px;}.inc-grid,.for-grid,.proc-grid{grid-template-columns:1fr;}.problem-grid{grid-template-columns:1fr;}.f-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo-wrap"><img src="./images/final-nb-logo.png" alt="NexSale"/></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get Started &rarr;</a>
+  </div>
+</nav>
+
+<div class="page-hero fade-in">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="services.html">Services</a> &rsaquo; <span>Social Media Management</span></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span class="badge-dot"></span>Social Media Service</div>
+        <h1 class="ph">Turn Followers<br><span class="acc">Into Clients.</span></h1>
+        <p class="ph-sub">Social media should be a lead generation engine — not a chore. We create, manage, and grow your presence across every platform so your brand stays top-of-mind and your DMs stay full.</p>
+        <div class="hero-btns">
+          <a href="contact.html" class="btn-primary">Grow My Social &rarr;</a>
+          <a href="services.html" class="btn-ghost">All Services</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-label">30-Day Performance Snapshot</div>
+        <div class="post-preview">
+          <div class="post-tag">&#128293; Latest Post — Instagram</div>
+          <div class="post-text">"5 signs your business needs an AI assistant right now..."</div>
+          <div class="post-meta">&#10084; 342 likes &nbsp;&#128172; 87 comments &nbsp;&#8644; 214 shares</div>
+        </div>
+        <div class="mini-stats">
+          <div class="ms"><div class="ms-n">5X</div><div class="ms-l">Engagement Rate</div></div>
+          <div class="ms"><div class="ms-n">300%</div><div class="ms-l">Reach Growth</div></div>
+          <div class="ms"><div class="ms-n">+2.4K</div><div class="ms-l">New Followers</div></div>
+          <div class="ms"><div class="ms-n">30+</div><div class="ms-l">Posts/Month</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-strip fade-in">
+  <div class="stats-inner">
+    <div class="stat-cell"><div class="stat-n">5X</div><div class="stat-l">Engagement Increase</div></div>
+    <div class="stat-cell"><div class="stat-n">300%</div><div class="stat-l">More Reach</div></div>
+    <div class="stat-cell"><div class="stat-n">30+</div><div class="stat-l">Posts Per Month</div></div>
+    <div class="stat-cell"><div class="stat-n">24hr</div><div class="stat-l">Content Turnaround</div></div>
+  </div>
+</div>
+
+<section class="problem-sec fade-in">
+  <div class="container">
+    <div class="s-label">The Problem</div>
+    <h2 class="sh">Posting Without a Plan<br><span class="acc">Wastes Time</span></h2>
+    <p class="sec-p">Most businesses post inconsistently, use the wrong content types, and have no funnel — so their social media burns time without generating leads.</p>
+    <div class="problem-grid">
+      <div class="prob-col bad">
+        <div class="prob-head red">&#10005; Without a Social Strategy</div>
+        <div class="prob-item"><span>&#10005;</span>Random posts with no engagement or direction</div>
+        <div class="prob-item"><span>&#10005;</span>Accounts that look abandoned — hurting credibility</div>
+        <div class="prob-item"><span>&#10005;</span>No lead generation funnel from social channels</div>
+        <div class="prob-item"><span>&#10005;</span>Wasted hours creating content with no ROI</div>
+        <div class="prob-item"><span>&#10005;</span>Missing short-form video — the #1 reach driver</div>
+      </div>
+      <div class="prob-col">
+        <div class="prob-head green">&#10003; With NexSale Social Management</div>
+        <div class="prob-item"><span style="color:var(--c)">&#10003;</span>Strategic content that attracts your ideal client</div>
+        <div class="prob-item"><span style="color:var(--c)">&#10003;</span>Active, professional presence across all platforms</div>
+        <div class="prob-item"><span style="color:var(--c)">&#10003;</span>DM funnels and CTAs that convert followers to leads</div>
+        <div class="prob-item"><span style="color:var(--c)">&#10003;</span>Done-for-you content so you focus on your business</div>
+        <div class="prob-item"><span style="color:var(--c)">&#10003;</span>Reels & short-form video optimized for viral reach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="included-sec fade-in">
+  <div class="container">
+    <div class="s-label">What's Included</div>
+    <h2 class="sh">A Complete Done-For-You<br><span class="acc">Social System</span></h2>
+    <p class="sec-p">Every piece of the social media puzzle handled for you — strategy, content creation, posting, and reporting.</p>
+    <div class="inc-grid">
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><rect x="6" y="6" width="28" height="28" rx="4" stroke="url(#s1)" stroke-width="2"/><path d="M13 20h14M13 14h14M13 26h10" stroke="url(#s1)" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Content Strategy</h3>
+        <p>A custom monthly content calendar built around your brand, audience, and goals — every post has a purpose and a clear call to action.</p>
+      </div>
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s2" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><path d="M10 30V16l10-8 10 8v14H24v-8h-8v8z" stroke="url(#s2)" stroke-width="2" stroke-linejoin="round"/></svg>
+        <h3>Short-Form Video</h3>
+        <p>Reels, TikToks, and Shorts — scripted, produced, and optimized for maximum organic reach and follower growth on every platform.</p>
+      </div>
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s3" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><circle cx="20" cy="20" r="14" stroke="url(#s3)" stroke-width="2"/><path d="M14 26c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="url(#s3)" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="16" r="3" stroke="url(#s3)" stroke-width="2"/></svg>
+        <h3>Community Management</h3>
+        <p>Daily engagement with your audience — replies, comments, and DMs handled professionally to build loyalty and drive conversations toward sales.</p>
+      </div>
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s4" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><path d="M8 30L14 20l8 6 8-14" stroke="url(#s4)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 12h-6M32 12v6" stroke="url(#s4)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Growth Analytics</h3>
+        <p>Monthly performance reports covering reach, engagement, follower growth, and lead attribution so you see exactly what your social ROI looks like.</p>
+      </div>
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s5" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><rect x="8" y="10" width="24" height="20" rx="5" stroke="url(#s5)" stroke-width="2"/><path d="M16 23l4-6 4 6" stroke="url(#s5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Graphic Design</h3>
+        <p>On-brand visuals for every post — carousels, infographics, and story graphics designed to stop the scroll and communicate your message clearly.</p>
+      </div>
+      <div class="ic">
+        <svg class="ic-icon" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="s6" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><path d="M12 28c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="url(#s6)" stroke-width="2" stroke-linecap="round"/><path d="M8 34c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="url(#s6)" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/><circle cx="20" cy="14" r="5" stroke="url(#s6)" stroke-width="2"/></svg>
+        <h3>DM Lead Funnels</h3>
+        <p>Strategic DM sequences that nurture warm followers into booked calls — turning your social audience directly into qualified leads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-sec fade-in">
+  <div class="container">
+    <div class="s-label">Our Process</div>
+    <h2 class="sh">How We Build Your<br><span class="acc">Social Presence</span></h2>
+    <p class="sec-p">From strategy to execution — a proven system that turns your social profiles into consistent lead generation channels.</p>
+    <div class="proc-grid">
+      <div class="pc"><div class="pc-num">01 / STRATEGY</div><h3>Brand Audit</h3><p>We analyze your current social presence, audience, competitors, and content gaps to build a strategy tailored to your business goals.</p></div>
+      <div class="pc"><div class="pc-num">02 / CREATE</div><h3>Content Creation</h3><p>Monthly content calendar produced in advance — graphics, videos, captions, and hashtags all ready to go and aligned to your brand voice.</p></div>
+      <div class="pc"><div class="pc-num">03 / MANAGE</div><h3>Post & Engage</h3><p>Daily posting across your channels with active community management — we're in your DMs and comments growing your relationships.</p></div>
+      <div class="pc"><div class="pc-num">04 / OPTIMIZE</div><h3>Report & Refine</h3><p>Monthly analytics review to identify what's performing best, double down on winning content types, and keep your growth accelerating.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="for-sec fade-in">
+  <div class="container">
+    <div class="s-label">Who It's For</div>
+    <h2 class="sh">Built for Businesses<br><span class="acc">Ready to Grow</span></h2>
+    <p class="sec-p">Whether you're starting from zero or looking to scale an existing audience into real revenue, we have a package for you.</p>
+    <div class="for-grid">
+      <div class="fc2"><div class="fc2-num">01</div><h3>New Businesses</h3><p>Build your brand presence from the ground up with a professional, consistent social strategy that establishes credibility and attracts your first customers.</p></div>
+      <div class="fc2"><div class="fc2-num">02</div><h3>Growing Brands</h3><p>You have an audience but not a system. We turn your followers into leads with content strategy, DM funnels, and engagement systems that scale.</p></div>
+      <div class="fc2"><div class="fc2-num">03</div><h3>E-Commerce Stores</h3><p>Product showcases, UGC campaigns, and short-form video that drives traffic and sales directly from Instagram, TikTok, and Facebook to your store.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec fade-in">
+  <div class="container">
+    <div class="faq-layout">
+      <div>
+        <div class="s-label">FAQ</div>
+        <h2 class="sh">Common<br><span class="acc">Questions</span></h2>
+        <p class="sec-p">Answers to the most common questions about our social media management service.</p>
+        <a href="contact.html" class="btn-primary" style="margin-top:8px">Ask Us Anything &rarr;</a>
+      </div>
+      <div class="faq-list">
+        <div class="fq-item"><button class="fq-q" onclick="toggleFaq(this)">Which platforms do you manage? <span class="fq-icon">+</span></button><div class="fq-a"><p>We manage Facebook, Instagram, TikTok, LinkedIn, and YouTube Shorts. We recommend focusing on 2–3 platforms where your audience is most active for maximum results.</p></div></div>
+        <div class="fq-item"><button class="fq-q" onclick="toggleFaq(this)">Do I need to provide content? <span class="fq-icon">+</span></button><div class="fq-a"><p>No — we handle everything from creation to posting. If you have brand photos or videos you'd like us to use, we'll incorporate them. But we can run your social media completely hands-off for you.</p></div></div>
+        <div class="fq-item"><button class="fq-q" onclick="toggleFaq(this)">How soon will I see results? <span class="fq-icon">+</span></button><div class="fq-a"><p>Engagement improvements typically show within 30 days. Meaningful follower growth and lead generation from social usually becomes significant by the 60–90 day mark as momentum builds.</p></div></div>
+        <div class="fq-item"><button class="fq-q" onclick="toggleFaq(this)">Is there a minimum contract? <span class="fq-icon">+</span></button><div class="fq-a"><p>We recommend a 3-month commitment to see real results, but we don't lock you into long-term contracts. Month-to-month options are available after the initial period.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec fade-in">
+  <div class="container">
+    <div class="s-label">Client Result</div>
+    <h2 class="sh" style="margin-bottom:36px">Real <span class="acc">Results</span></h2>
+    <div class="tcard">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Their creative approach breathed new life into our brand. In 90 days, our Instagram went from 800 to over 5,000 followers and we started getting 10+ DM inquiries a week. A genuine game-changer."</blockquote>
+      <div class="t-auth"><div class="av">MQ</div><div><h4>Marianne Q.</h4><span>Small Business Owner</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec fade-in">
+  <div class="container">
+    <div class="cta-label">Get Started Today</div>
+    <h2>Ready to Turn Social<br><span class="acc">Into Sales?</span></h2>
+    <p>Book a free strategy call and let's map out a social system that consistently generates leads for your business.</p>
+    <a href="contact.html" class="btn-primary">Book My Free Strategy Call &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="f-logo"><img src="./images/white-font-logo.png" alt="NexSale"/><p>Helping businesses capture, nurture, and close more leads through AI and automation — 24/7.</p><div class="soc-row"><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></a></div></div>
+      <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="service-gmb.html">GMB Optimization</a></li><li><a href="service-social.html">Social Media</a></li><li><a href="service-seo.html">SEO Services</a></li><li><a href="service-ai.html">AI Assistants</a></li><li><a href="service-saas.html">SaaS Platform</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:nexsalemarketing@gmail.com">nexsalemarketing@gmail.com</a></li><li><a href="#">Antipolo City, Rizal</a></li><li><a href="#">Philippines</a></li></ul></div>
+    </div>
+    <div class="f-bottom"><span>NEXSALE DIGITAL MARKETING &copy; 2026</span><span style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></span></div>
+  </div>
+</footer>
+<script>
+function toggleFaq(btn){btn.closest('.fq-item').classList.toggle('open');}
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('vis')),{threshold:0.06});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

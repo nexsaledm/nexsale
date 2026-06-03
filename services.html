@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexSale — Services</title>
+<link rel="icon" href="./images/favicon.png" type="image/jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/EPIPQ3sZyEaTD9AXWXpNatRNYA.woff2");font-weight:700;font-display:swap;}
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/p1xtRpMnQqT49E3ruloagNZA.woff2");font-weight:500;font-display:swap;}
+@font-face{font-family:"Clash Display";src:url("https://framerusercontent.com/assets/GCNg0zn2SGY4j9o7EOyAXQwNPds.woff2");font-weight:400;font-display:swap;}
+:root{--c:#00c4b8;--m:#d4006a;--p:#6b2aef;--grad:linear-gradient(135deg,var(--c) 0%,var(--p) 50%,var(--m) 100%);--bg:#f5f5f7;--surface:#ffffff;--surface2:#f0f0f5;--ink:#111118;--ink2:#444455;--ink3:#888899;--line:#e2e2ea;--fh:'Clash Display',sans-serif;--fb:'Space Grotesk',sans-serif;--fm:'JetBrains Mono',monospace;--max:1200px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);overflow-x:hidden;}
+.container{max-width:var(--max);margin:0 auto;width:100%;padding:0 48px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);height:68px;}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap img{height:130px;width:auto;object-fit:contain;display:block;}
+nav ul{list-style:none;display:flex;}
+nav ul li a{display:flex;align-items:center;padding:0 14px;height:68px;color:var(--ink2);text-decoration:none;font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:0.03em;transition:color 0.2s;}
+nav ul li a:hover,nav ul li a.active{color:var(--p);}
+.nav-cta,.btn-primary,.submit-btn{position:relative;overflow:hidden;}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
+.nav-cta::after,.btn-primary::after,.submit-btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%);transform:skewX(-20deg);}
+.nav-cta:hover::after,.btn-primary:hover::after,.submit-btn:hover::after{left:150%;transition:left 0.55s ease;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s,transform 0.2s;}
+.btn-primary:hover{opacity:0.92;transform:translateY(-1px);}
+.btn-sm{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.2s;}
+.btn-sm::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%);transform:skewX(-20deg);}
+.btn-sm:hover{opacity:0.9;}
+.btn-sm:hover::after{left:150%;transition:left 0.55s ease;}
+.s-label{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:10px;}
+.s-label::before{content:'';display:block;width:18px;height:2px;background:var(--grad);}
+h2.sh{font-family:var(--fh);font-weight:700;font-size:clamp(34px,4.5vw,54px);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.0;color:var(--ink);margin-bottom:14px;}
+h2.sh .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-p{font-family:var(--fm);font-size:14px;color:var(--ink3);line-height:1.7;max-width:500px;margin-bottom:48px;}
+.page-hero{padding:130px 0 72px;background:var(--surface);border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:0.5;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,42,239,0.07);border:1px solid rgba(107,42,239,0.2);padding:6px 16px;margin-bottom:24px;font-family:var(--fm);font-size:11px;font-weight:700;color:var(--p);letter-spacing:0.14em;text-transform:uppercase;position:relative;z-index:1;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--p);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.6)}}
+h1.ph{font-family:var(--fh);font-weight:700;font-size:clamp(44px,5.5vw,68px);letter-spacing:-0.03em;line-height:1.05;color:var(--ink);text-transform:uppercase;margin-bottom:18px;position:relative;z-index:1;}
+h1.ph .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ph-sub{font-family:var(--fm);font-size:14px;color:var(--ink3);line-height:1.65;max-width:540px;position:relative;z-index:1;}
+/* service blocks */
+.svc-block{padding:72px 0;border-bottom:1px solid var(--line);}
+.svc-block:nth-child(odd){background:var(--surface);}
+.svc-block:nth-child(even){background:var(--bg);}
+.svc-block-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.svc-block:nth-child(even) .svc-block-inner{direction:rtl;}
+.svc-block:nth-child(even) .svc-block-inner>*{direction:ltr;}
+.svc-n-lbl{font-family:var(--fm);font-size:11px;color:var(--ink3);letter-spacing:0.1em;margin-bottom:8px;}
+.svc-block h2{font-family:var(--fh);font-weight:700;font-size:clamp(28px,3.5vw,44px);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.0;color:var(--ink);margin-bottom:14px;}
+.svc-block h2 .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.svc-block .desc{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:22px;}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:26px;}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink2);}
+.feat-list li svg{flex-shrink:0;margin-top:2px;width:14px;height:14px;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.learn-link{font-family:var(--fm);font-size:12px;color:var(--p);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid rgba(107,42,239,0.3);padding-bottom:2px;transition:border-color 0.2s;}
+.learn-link:hover{border-color:var(--p);}
+/* visual panel */
+.svc-vis{background:var(--surface2);border:1px solid var(--line);padding:28px;}
+.vis-label{font-family:var(--fm);font-size:11px;color:var(--ink3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.bar-lbl{font-family:var(--fm);font-size:11px;color:var(--ink3);width:22px;text-align:right;}
+.bar-track{flex:1;height:7px;background:var(--line);overflow:hidden;}
+.bar-fill{height:100%;background:var(--grad);}
+.bar-tag{font-family:var(--fm);font-size:11px;color:var(--p);width:110px;}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:16px;border:1px solid var(--line);}
+.vs{background:var(--surface);padding:16px 14px;}
+.vs-n{font-family:var(--fh);font-size:30px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.vs-l{font-family:var(--fm);font-size:10px;color:var(--ink3);margin-top:3px;letter-spacing:0.06em;text-transform:uppercase;}
+.chat-box{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--p);padding:14px;margin-top:12px;}
+.chat-from{font-family:var(--fm);font-size:11px;color:var(--p);margin-bottom:6px;letter-spacing:0.08em;text-transform:uppercase;}
+.chat-box p{font-size:13px;color:var(--ink2);line-height:1.6;}
+.vis-icon{width:40px;height:40px;margin-bottom:14px;}
+/* cta */
+.cta-sec{padding:90px 0;text-align:center;background:var(--surface);border-top:1px solid var(--line);}
+.cta-label{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-label::before,.cta-label::after{content:'';display:block;width:18px;height:2px;background:var(--grad);}
+.cta-sec h2{font-family:var(--fh);font-size:clamp(38px,5vw,62px);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.0;margin-bottom:16px;color:var(--ink);}
+.cta-sec h2 .acc{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-sec p{font-family:var(--fm);font-size:14px;color:var(--ink3);max-width:460px;margin:0 auto 28px;line-height:1.6;}
+footer{background:var(--ink);padding:72px 0 36px;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 48px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.f-logo img{height:90px;width:auto;display:block;margin-bottom:14px;}
+.f-logo p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.72;max-width:240px;margin-bottom:18px;}
+.soc-row{display:flex;gap:8px;}
+.soc{width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all 0.2s;}
+.soc:hover{border-color:var(--c);color:var(--c);}
+.soc svg{width:16px;height:16px;}
+footer h4{font-family:var(--fm);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+footer ul a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:14px;transition:color 0.2s;}
+footer ul a:hover{color:#fff;}
+.f-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;}
+.f-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+.f-bottom a:hover{color:#fff;}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.fade-in.vis{opacity:1;transform:none;}
+@media(max-width:1100px){.nav-inner,.container,.footer-inner{padding:0 24px;}.svc-block-inner{grid-template-columns:1fr;direction:ltr!important;gap:36px;}.svc-block{padding:56px 0;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){nav ul{display:none;}.nav-inner{padding:0 16px;}.page-hero{padding:110px 0 56px;}.f-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo-wrap"><img src="./images/final-nb-logo.png" alt="NexSale"/></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get Started &rarr;</a>
+  </div>
+</nav>
+
+<div class="page-hero fade-in">
+  <div class="container">
+    <div class="hero-badge"><span class="badge-dot"></span>Our Services</div>
+    <h1 class="ph">Revenue Systems<br><span class="acc">That Scale.</span></h1>
+    <p class="ph-sub">We don't just run campaigns. We build complete lead-generation and automation systems that work for your business around the clock.</p>
+  </div>
+</div>
+
+<!-- SVC 1 -->
+<div class="svc-block fade-in" id="gmb">
+  <div class="container">
+    <div class="svc-block-inner">
+      <div>
+        <div class="svc-n-lbl">01 / GMB OPTIMIZATION</div>
+        <h2>GMB <span class="acc">Optimization</span></h2>
+        <p class="desc">When people search for your service, they click the top results — not page 2. We optimize your Google Business Profile to rank higher and convert local traffic into calls and bookings.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck1" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full GMB Optimization (NAP, categories, keywords)</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck2" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Geo-targeted posts & content strategy</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck3" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Review generation & automation</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck4" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Citation building across directories</li>
+        </ul>
+        <div class="btn-row">
+          <a href="service-gmb.html" class="btn-primary">Get My GMB Optimized &rarr;</a>
+          <a href="service-gmb.html" class="learn-link">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-vis">
+        <svg class="vis-icon" viewBox="0 0 44 44" fill="none"><defs><linearGradient id="si1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><path d="M22 6C14 6 8 12 8 20c0 11 14 26 14 26s14-15 14-26c0-8-6-14-14-14z" stroke="url(#si1)" stroke-width="2.5"/><circle cx="22" cy="20" r="5" stroke="url(#si1)" stroke-width="2"/></svg>
+        <div class="vis-label">Ranking Results</div>
+        <div class="bar-row"><span class="bar-lbl">#1</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><span class="bar-tag">NexSale Client</span></div>
+        <div class="bar-row"><span class="bar-lbl">#2</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--line)"></div></div><span class="bar-tag" style="color:var(--ink3)">Competitor A</span></div>
+        <div class="bar-row"><span class="bar-lbl">#3</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--line)"></div></div><span class="bar-tag" style="color:var(--ink3)">Competitor B</span></div>
+        <div class="vs-grid"><div class="vs"><div class="vs-n">#1</div><div class="vs-l">Local Rank</div></div><div class="vs"><div class="vs-n">+80%</div><div class="vs-l">More Calls</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVC 2 -->
+<div class="svc-block fade-in" id="social">
+  <div class="container">
+    <div class="svc-block-inner">
+      <div>
+        <div class="svc-n-lbl">02 / SOCIAL MEDIA</div>
+        <h2>Social Media <span class="acc">Management</span></h2>
+        <p class="desc">Turn your social media into a consistent lead generation machine with strategic content, short-form videos, and engagement systems that convert followers into paying clients.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck5" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Content strategy & calendar planning</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck6" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Short-form video production (Reels, TikTok)</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck7" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Community engagement & DM funnels</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck8" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly performance reporting</li>
+        </ul>
+        <div class="btn-row">
+          <a href="service-social.html" class="btn-primary">Grow My Social &rarr;</a>
+          <a href="service-social.html" class="learn-link">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-vis">
+        <svg class="vis-icon" viewBox="0 0 44 44" fill="none"><defs><linearGradient id="si2" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><rect x="8" y="6" width="28" height="32" rx="6" stroke="url(#si2)" stroke-width="2.5"/><path d="M16 18h12M16 24h10" stroke="url(#si2)" stroke-width="2" stroke-linecap="round"/></svg>
+        <div class="vs-grid"><div class="vs"><div class="vs-n">5X</div><div class="vs-l">Engagement</div></div><div class="vs"><div class="vs-n">300%</div><div class="vs-l">More Reach</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVC 3 -->
+<div class="svc-block fade-in" id="seo">
+  <div class="container">
+    <div class="svc-block-inner">
+      <div>
+        <div class="svc-n-lbl">03 / SEO SERVICES</div>
+        <h2>SEO <span class="acc">Services</span></h2>
+        <p class="desc">Drive high-intent organic traffic that converts into real customers through proven technical and content strategies that build long-term, compounding growth.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck9" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Technical SEO audit & fixes</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck10" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck10)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Keyword research & content strategy</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck11" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck11)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>On-page & off-page optimization</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck12" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck12)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Link building & authority growth</li>
+        </ul>
+        <div class="btn-row">
+          <a href="service-seo.html" class="btn-primary">Rank Higher Today &rarr;</a>
+          <a href="service-seo.html" class="learn-link">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-vis">
+        <svg class="vis-icon" viewBox="0 0 44 44" fill="none"><defs><linearGradient id="si3" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><path d="M6 38L18 22l10 8 12-16" stroke="url(#si3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 14h-8M36 14v8" stroke="url(#si3)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="vs-grid"><div class="vs"><div class="vs-n">90</div><div class="vs-l">Days to Rank</div></div><div class="vs"><div class="vs-n">200%</div><div class="vs-l">Traffic Growth</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVC 4 -->
+<div class="svc-block fade-in" id="ai">
+  <div class="container">
+    <div class="svc-block-inner">
+      <div>
+        <div class="svc-n-lbl">04 / AI ASSISTANTS</div>
+        <h2>AI <span class="acc">Assistants</span></h2>
+        <p class="desc">We build AI-powered assistants that instantly respond to inquiries, qualify leads, and book appointments automatically — so you never miss a lead again.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck13" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck13)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom AI chatbot development</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck14" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck14)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 lead qualification & response</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck15" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck15)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Appointment booking automation</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck16" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck16)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-channel deployment (web, SMS, IG)</li>
+        </ul>
+        <div class="btn-row">
+          <a href="service-ai.html" class="btn-primary">Get My AI Assistant &rarr;</a>
+          <a href="service-ai.html" class="learn-link">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-vis">
+        <svg class="vis-icon" viewBox="0 0 44 44" fill="none"><defs><linearGradient id="si4" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><rect x="8" y="12" width="28" height="20" rx="6" stroke="url(#si4)" stroke-width="2.5"/><path d="M16 24h8M16 20h14" stroke="url(#si4)" stroke-width="2" stroke-linecap="round"/></svg>
+        <div class="chat-box"><div class="chat-from">NexBot — Live</div><p>"Hi! I can help you book a free strategy call. What service are you interested in?"</p></div>
+        <div class="vs-grid"><div class="vs"><div class="vs-n">24/7</div><div class="vs-l">Always On</div></div><div class="vs"><div class="vs-n">&lt;2s</div><div class="vs-l">Response Time</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVC 5 -->
+<div class="svc-block fade-in" id="saas">
+  <div class="container">
+    <div class="svc-block-inner">
+      <div>
+        <div class="svc-n-lbl">05 / SAAS PLATFORM</div>
+        <h2>SaaS Business <span class="acc">System</span></h2>
+        <p class="desc">Our all-in-one platform helps you manage your entire customer journey — from lead capture to closing deals — with full pipeline visibility and automation built in.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck17" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck17)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full CRM & pipeline management</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck18" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck18)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Email & SMS marketing automation</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck19" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck19)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Landing page & funnel builder</li>
+          <li><svg viewBox="0 0 14 14" fill="none"><defs><linearGradient id="ck20" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset="1" stop-color="#6b2aef"/></linearGradient></defs><path d="M1 7l4 4 8-8" stroke="url(#ck20)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Analytics & reporting dashboard</li>
+        </ul>
+        <div class="btn-row">
+          <a href="service-saas.html" class="btn-primary">Try the Platform &rarr;</a>
+          <a href="service-saas.html" class="learn-link">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-vis">
+        <svg class="vis-icon" viewBox="0 0 44 44" fill="none"><defs><linearGradient id="si5" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#00c4b8"/><stop offset=".5" stop-color="#6b2aef"/><stop offset="1" stop-color="#d4006a"/></linearGradient></defs><circle cx="22" cy="22" r="14" stroke="url(#si5)" stroke-width="2.5"/><path d="M14 22h16M22 14v16" stroke="url(#si5)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="vs-grid"><div class="vs"><div class="vs-n">1</div><div class="vs-l">Platform</div></div><div class="vs"><div class="vs-n">&#8734;</div><div class="vs-l">Automation</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-sec fade-in">
+  <div class="container">
+    <div class="cta-label">Ready to Start?</div>
+    <h2>Let's Build Your <span class="acc">Revenue System</span></h2>
+    <p>Book a free strategy call and let's map out the right system for your business goals.</p>
+    <a href="contact.html" class="btn-primary">Book a Free Strategy Call &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="f-logo"><img src="./images/white-font-logo.png" alt="NexSale"/><p>Helping businesses capture, nurture, and close more leads through AI and automation — 24/7.</p><div class="soc-row"><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+      <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="service-gmb.html">GMB Optimization</a></li><li><a href="service-social.html">Social Media</a></li><li><a href="service-seo.html">SEO Services</a></li><li><a href="service-ai.html">AI Assistants</a></li><li><a href="service-saas.html">SaaS Platform</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:nexsalemarketing@gmail.com">nexsalemarketing@gmail.com</a></li><li><a href="#">Antipolo City, Rizal</a></li><li><a href="#">Philippines</a></li></ul></div>
+    </div>
+    <div class="f-bottom"><span>NEXSALE DIGITAL MARKETING &copy; 2026</span><span style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></span></div>
+  </div>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('vis')),{threshold:0.06});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
